@@ -31,4 +31,3 @@ public class SliderForAmpers : MonoBehaviour
         sliderText.text = i.ToString("0.00");
     }
 }
-
