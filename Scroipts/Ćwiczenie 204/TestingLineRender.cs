@@ -11,3 +11,4 @@ public class TestingLineRender : MonoBehaviour
         line.SetUpLine(points);
     }
 }
+
