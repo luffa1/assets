@@ -23,9 +23,7 @@ public class SliderForVoltage : MonoBehaviour
 
     public void Amper(float i)
     {
-        float r = 13;
-        float u ;
-        u =  i * r;
-        sliderText.text = u.ToString("00.0");
+        SkryptObliczeniowy skrypt = new SkryptObliczeniowy();
+        sliderText.text = skrypt.CalculateVoltage(i).ToString("00.0");
     }
 }

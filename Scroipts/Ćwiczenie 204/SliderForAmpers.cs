@@ -25,10 +25,8 @@ public class SliderForAmpers : MonoBehaviour
     // Funkcja odpowiadająca za zwiększanie się amperów według wzoru
     public void Voltage(float u)
     {
-        float r = 13;
-        float i ;
-        i =  u / r;
-        sliderText.text = i.ToString("0.00");
+        SkryptObliczeniowy skrypt = new SkryptObliczeniowy();
+        sliderText.text = skrypt.CalculateAmper(u).ToString("0.00");
     }
 }
 
