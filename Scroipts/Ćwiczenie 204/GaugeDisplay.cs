@@ -7,27 +7,25 @@ using TMPro;
 
 public class GaugeDisplay : MonoBehaviour
 {
-    public SliderForVoltage sliderVoltage;
-    [SerializeField] private Slider slider;
+    public SliderForVoltage gaugeValue;
+    [SerializeField] private Slider sliderAmp;
     [SerializeField] private TextMeshProUGUI sliderText;
 
 
     void Start()
     {
-        sliderVoltage = GameObject.Find("Slider 2").GetComponent<SliderForVoltage>();
+        gaugeValue = GameObject.Find("Slider 2").GetComponent<SliderForVoltage>();
         
-        slider.onValueChanged.AddListener((v) => {
-            sliderText.text = v.ToString("0.00");
-            sliderVoltage.Amper(v);
+        sliderAmp.onValueChanged.AddListener((x) => {
+            sliderText.text = x.ToString("0.000");
+            gaugeValue.DisplayAmperGauge(x);
         });
     }
 
     // Funkcja odpowiadająca za zwiększanie się amperów według wzoru
-    public void Voltage(float u)
+    public void DisplayAmperGauge(float u)
     {
-        float r = 13;
-        float i ;
-        i =  u / r;
-        sliderText.text = i.ToString("0.00");
+        SkryptObliczeniowy skrypt = new SkryptObliczeniowy();
+        sliderText.text = skrypt.CalculateAmper(u).ToString("0.000");
     }
 }

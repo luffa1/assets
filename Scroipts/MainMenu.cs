@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 4);
     }
-    public void Ćwiczenie301()
+    public void Ćwiczenie324()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 5);
     }

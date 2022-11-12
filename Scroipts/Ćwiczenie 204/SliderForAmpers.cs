@@ -28,6 +28,7 @@ public class SliderForAmpers : MonoBehaviour
         SkryptObliczeniowy skrypt = new SkryptObliczeniowy();
         sliderText.text = skrypt.CalculateAmper(u).ToString("0.00");
     }
+  
 }
 
 
