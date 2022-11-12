@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class RotateMirror : MonoBehaviour
 {
-    public float position = 0;
-    void Update()
+
+    [SerializeField] private Slider slider;
+    // public float positionLimit = 180f;
+
+    void Start()
     {
-        transform.Rotate(0,0,0);
+        slider.onValueChanged.AddListener(delegate {
+            ObjRotation();
+        });
     }
 
-    public void ObjRotation (float newPosition){
-        position = newPosition;
+    public void ObjRotation() {
+        transform.rotation = Quaternion.Euler(Vector3.forward * slider.value);
     }
 }
