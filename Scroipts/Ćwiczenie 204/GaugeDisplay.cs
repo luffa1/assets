@@ -18,7 +18,6 @@ public class GaugeDisplay : MonoBehaviour
         
         sliderAmp.onValueChanged.AddListener((x) => {
             sliderText.text = x.ToString("0.000");
-            gaugeValue.DisplayAmperGauge(x);
         });
     }
 

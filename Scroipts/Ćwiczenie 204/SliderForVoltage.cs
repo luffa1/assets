@@ -7,6 +7,7 @@ using TMPro;
 
 public class SliderForVoltage : MonoBehaviour
 {
+    
     public SliderForAmpers sliderAmper;
     [SerializeField] private Slider slider;
     [SerializeField] private TextMeshProUGUI sliderText;
@@ -25,10 +26,6 @@ public class SliderForVoltage : MonoBehaviour
     {
         SkryptObliczeniowy skrypt = new SkryptObliczeniowy();
         sliderText.text = skrypt.CalculateVoltage(i).ToString("00.0");
-    }
-      public void DisplayAmperGauge(float u)
-    {
-        SkryptObliczeniowy skrypt = new SkryptObliczeniowy();
-        sliderText.text = skrypt.CalculateAmper(u).ToString("0.000");
+       
     }
 }

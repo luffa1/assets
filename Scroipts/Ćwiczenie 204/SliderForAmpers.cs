@@ -7,6 +7,7 @@ using TMPro;
 
 public class SliderForAmpers : MonoBehaviour
 {
+    public GaugeDisplay gaugeDisplay;
     public SliderForVoltage sliderVoltage;
     [SerializeField] private Slider slider;
     [SerializeField] private TextMeshProUGUI sliderText;
@@ -15,6 +16,8 @@ public class SliderForAmpers : MonoBehaviour
     void Start()
     {
         sliderVoltage = GameObject.Find("Slider 2").GetComponent<SliderForVoltage>();
+        gaugeDisplay = GameObject.Find("Amperomierz").GetComponent<GaugeDisplay>();
+
         
         slider.onValueChanged.AddListener((v) => {
             sliderText.text = v.ToString("0.00");
@@ -27,6 +30,7 @@ public class SliderForAmpers : MonoBehaviour
     {
         SkryptObliczeniowy skrypt = new SkryptObliczeniowy();
         sliderText.text = skrypt.CalculateAmper(u).ToString("0.00");
+        gaugeDisplay.DisplayAmperGauge(u);
     }
   
 }

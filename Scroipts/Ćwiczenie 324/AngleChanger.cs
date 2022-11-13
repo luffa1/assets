@@ -6,12 +6,18 @@ using TMPro;
 
 public class AngleChanger : MonoBehaviour
 {
+    public CurrentConsumption consumption;
     [SerializeField] private Slider slider;
     [SerializeField] private TextMeshProUGUI sliderText;
-    void Start()
+
+ void Start()
     {
+        consumption = GameObject.Find("Detektor").GetComponent<CurrentConsumption>();
+
         slider.onValueChanged.AddListener((v) => {
-            sliderText.text = v.ToString("0");
+        double p = System.Math.Round(v / 5.0) * 5;
+        consumption.UpdatePosition(p); 
+        sliderText.text = p.ToString("0");
         });
     }
 }

@@ -8,7 +8,6 @@ public class RotateMirror : MonoBehaviour
 {
 
     [SerializeField] private Slider slider;
-    // public float positionLimit = 180f;
 
     void Start()
     {
@@ -17,7 +16,10 @@ public class RotateMirror : MonoBehaviour
         });
     }
 
-    public void ObjRotation() {
-        transform.rotation = Quaternion.Euler(Vector3.forward * slider.value);
+    // public void ObjRotation() {
+    //     transform.rotation = Quaternion.Euler(Vector3.forward * - slider.value);
+    // }
+      public void ObjRotation() {
+        transform.eulerAngles += Vector3.forward * - slider.value;
     }
 }
