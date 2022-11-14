@@ -5,12 +5,17 @@ using UnityEngine.UI;
 
 public class InputField : MonoBehaviour
 {
-    public InputField numbers;
-    string wantedNumbers;
+    public SkryptObliczeniowy skrypt;
+    public float textResistance;
 
-    private void NumerField() 
+    void Start() 
     {
-        // if (Input.GetKeyUp(KeyCode.Return));
+        // textResistance = GetComponent<SkryptObliczeniowy>().rFloat;       
+    }
+
+    private void NumberField(string newText) 
+    {
+
     }
 }
 

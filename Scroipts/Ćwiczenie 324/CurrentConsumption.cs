@@ -16,18 +16,17 @@ public class CurrentConsumption : MonoBehaviour
     public void UpdatePosition(double n)
     {
         // funkcja, która powinna jedynie odczytywać tylko zadeklarowane liczby
-        float previousValue = 0;
-        if (previousValue == n)
-        // if  (n == 5)
+        // float previousValue = 0;
+        // if (previousValue == n)
+        if (n == 1)
         {
-            n = 5;
             transform.position = new Vector2(-7.44f, 0.83f);
         }
-        if (n == 10)
+        if (n == 2)
         {
             transform.position = new Vector2(-6.57f, 2.03f);
         }
-        if (n == 15)
+        if (n == 3)
         {
             transform.position = new Vector2(-5.98f, 2.67f);
         }
