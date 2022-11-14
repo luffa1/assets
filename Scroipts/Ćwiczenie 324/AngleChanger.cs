@@ -15,9 +15,9 @@ public class AngleChanger : MonoBehaviour
         consumption = GameObject.Find("Detektor").GetComponent<CurrentConsumption>();
 
         slider.onValueChanged.AddListener((v) => {
-        float sliderDisplay = v * 5;
+        float prismaAngle = v * 5;
         consumption.UpdatePosition(v); 
-        sliderText.text = sliderDisplay.ToString("0");
+        sliderText.text = prismaAngle.ToString("0");
         Debug.Log(v);
         });
     }

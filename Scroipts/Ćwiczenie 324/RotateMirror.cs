@@ -25,9 +25,9 @@ public class RotateMirror : MonoBehaviour
         float previousSliderValue = sliderValue.GetPreviousSliderValue();
 
         if (previousSliderValue < slider.value) {
-            transform.eulerAngles += Vector3.forward * - slider.value;    
+            transform.eulerAngles = Vector3.forward * - slider.value;    
         } else {
-            transform.eulerAngles += Vector3.forward * slider.value;
+            transform.eulerAngles = Vector3.forward * slider.value;
         }
 
         sliderValue.SetPreviousSliderValue(slider.value);
