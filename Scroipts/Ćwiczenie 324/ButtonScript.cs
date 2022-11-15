@@ -6,14 +6,14 @@ using TMPro;
 
 public class ButtonScript : MonoBehaviour
 {
+    public GameObject Amperomierz;
     public TextMeshProUGUI buttonText;
-    public Button shift;
     bool shifted;
     void Start()
     {
+        
         // amperGaugeScript =GameObject.FindGameObjectWithTag("Amperomierz").GetComponent<AmperGauge>();
         // Button amperGaugeScrip = GetComponent<Button>();
-        shift.onClick.AddListener(ShiftClicked);
     }
  
     void Update()
@@ -23,7 +23,8 @@ public class ButtonScript : MonoBehaviour
     }
     public void ShiftClicked()
     {
-        shifted = !shifted;
+        Amperomierz.SetActive(true);
+         shifted = !shifted;
         if (shifted)
         {
          buttonText.text = "0";
