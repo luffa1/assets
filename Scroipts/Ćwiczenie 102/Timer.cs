@@ -10,10 +10,6 @@ public class Timer : MonoBehaviour
     private float startTime;
     private float stopTime;
     private bool isStarted = false;
-    public void Start()
-    {
-
-    }
 
     public void startTimer() {
         isStarted = true;

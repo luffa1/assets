@@ -11,6 +11,7 @@ public class SliderForAmpers : MonoBehaviour
     public SliderForVoltage sliderVoltage;
     [SerializeField] private Slider slider;
     [SerializeField] private TextMeshProUGUI sliderText;
+    [SerializeField] private TextMeshProUGUI distanceText;
 
 
     void Start()
@@ -28,9 +29,19 @@ public class SliderForAmpers : MonoBehaviour
     // Funkcja odpowiadająca za zwiększanie się amperów według wzoru
     public void Voltage(float u)
     {
+        string distanceValue = "";
+        if (u <= 2.5) 
+        {
+            distanceValue = "1";
+        } else if (u <= 5)
+        {
+            distanceValue = "2";
+        }
+        
         SkryptObliczeniowy skrypt = new SkryptObliczeniowy();
         sliderText.text = skrypt.CalculateAmper(u).ToString("0.00");
         gaugeDisplay.DisplayAmperGauge(u);
+        distanceText.text = distanceValue;
     }
   
 }

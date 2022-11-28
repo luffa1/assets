@@ -25,12 +25,12 @@ public class Pendulum : MonoBehaviour
 	private bool rosnie = false;
 	private bool wczesniejsze = false;
     public Timer timer;
-    // Start is called before the first frame update
     void Start()
     {
+		rb2d = GetComponent<Rigidbody2D>();
         timer = GameObject.Find("Timer").GetComponent<Timer>();
     }
-    // Update is called once per frame
+
     void Update()
     {
         testangle = previousangle;
@@ -97,11 +97,11 @@ public class Pendulum : MonoBehaviour
 
     void OnMouseDrag() {
 
-		Vector2 Screepoint = Camera.main.WorldToScreenPoint (transform.position);
-        Vector2 mouseposition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-		Vector2 objposition = Camera.main.ScreenToWorldPoint (mouseposition);
+		Vector3 Screepoint = Camera.main.WorldToScreenPoint (transform.position);
+        Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Screepoint.z);
+		Vector3 objposition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		transform.position = objposition;
-        transform.position = new Vector2 (transform.position.x, transform.position.y);
+        transform.position = new Vector3 (transform.position.x, transform.position.y, 0);
     }
 
     void OnMouseUp() {

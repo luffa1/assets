@@ -560,6 +560,7 @@ GameObject:
   - component: {fileID: 193384124}
   - component: {fileID: 193384123}
   - component: {fileID: 193384122}
+  - component: {fileID: 193384125}
   m_Layer: 5
   m_Name: ButtonPolarization 90
   m_TagString: Untagged
@@ -682,6 +683,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193384120}
   m_CullTransparentMesh: 1
+--- !u!114 &193384125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193384120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeba5a351eec194cb3b311bbde02076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amperomierz: {fileID: 1616832083}
+  buttonText: {fileID: 40272921}
 --- !u!1 &251950958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,7 +1183,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1616832086}
         m_TargetAssemblyTypeName: AmperGauge, Assembly-CSharp
-        m_MethodName: ShiftClicked
+        m_MethodName: Polarization0
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1228,7 +1243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eeba5a351eec194cb3b311bbde02076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Amperomierz: {fileID: 1616832083}
+  amperomierz: {fileID: 1616832083}
   buttonText: {fileID: 40272921}
 --- !u!1 &401142218
 GameObject:
@@ -2824,7 +2839,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prismaAngleSlider: {fileID: 1306604314}
+  buttonHolder: {fileID: 365140415}
   amperText: {fileID: 1758486693}
+  button90: {fileID: 193384122}
+  button0: {fileID: 365140412}
 --- !u!1 &1758486691
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,8 @@ public class SliderForVoltage : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] private TextMeshProUGUI sliderText;
 
+
+
     void Start()
     {
         sliderAmper = GameObject.Find("Slider 1").GetComponent<SliderForAmpers>();
@@ -24,8 +26,9 @@ public class SliderForVoltage : MonoBehaviour
 
     public void Amper(float i)
     {
+        
         SkryptObliczeniowy skrypt = new SkryptObliczeniowy();
-        sliderText.text = skrypt.CalculateVoltage(i).ToString("00.0");
-       
+        string voltageValue = skrypt.CalculateVoltage(i).ToString("00.0");
+        sliderText.text = voltageValue;
     }
 }
