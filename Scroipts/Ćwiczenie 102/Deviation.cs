@@ -16,8 +16,8 @@ public class Deviation : MonoBehaviour
         string y = "0";
         if (X.text == "1") 
         {
-            x = "3";
-            y = "5";
+            x = "9,7";
+            y = "6,1";
         } else if (X.text == "2")
         {
             x = "6";

@@ -5,7 +5,7 @@ using TMPro;
 
 public class Pendulum : MonoBehaviour
 {
-    Rigidbody2D rb2d;
+    
     float distance = 0;
 
 	public TextMeshProUGUI text;
@@ -27,7 +27,7 @@ public class Pendulum : MonoBehaviour
     public Timer timer;
     void Start()
     {
-		rb2d = GetComponent<Rigidbody2D>();
+		Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
         timer = GameObject.Find("Timer").GetComponent<Timer>();
     }
 

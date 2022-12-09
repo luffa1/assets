@@ -5,7 +5,7 @@ public class Wire : MonoBehaviour {
 
 	public Transform pivot;
 
-	// public Material lineMat;
+	public Material lineMat;
 	
 	public float radius = 0.05f;
 	
@@ -15,7 +15,7 @@ public class Wire : MonoBehaviour {
 	
 	// Fill in this with the default Unity square mesh
 	// We will account for the square pivot/origin being in the middle.
-	// public Mesh squareMesh;
+	public Mesh squareMesh;
 	GameObject[] ringGameObjects;
 
 
@@ -23,7 +23,7 @@ public class Wire : MonoBehaviour {
 	void Start () 
 	{
 		this.ringGameObjects = new GameObject[points.Length];
-		//this.connectingRings = new ProceduralRing[points.Length];
+		// this.connectingRings = new ProceduralRing[points.Length];
 		for (int i = 0; i < points.Length; i++) {
 			// Make a gameobject that we will put the ring on
 			// And then put it as a child on the gameobject that has this Command and Control script
@@ -41,11 +41,11 @@ public class Wire : MonoBehaviour {
 			ringOffsetSquareMeshObject.transform.localScale = new Vector3 (radius, 1f, radius);
 			
 			// Create the the Mesh and renderer to show the connecting ring
-			// MeshFilter ringMesh = ringOffsetSquareMeshObject.AddComponent<MeshFilter> ();
-			// ringMesh.mesh = this.squareMesh;
+			MeshFilter ringMesh = ringOffsetSquareMeshObject.AddComponent<MeshFilter> ();
+			ringMesh.mesh = this.squareMesh;
 			
-			// MeshRenderer ringRenderer = ringOffsetSquareMeshObject.AddComponent<MeshRenderer> ();
-			// ringRenderer.material = lineMat;
+			MeshRenderer ringRenderer = ringOffsetSquareMeshObject.AddComponent<MeshRenderer> ();
+			ringRenderer.material = lineMat;
 
 		}
 	}
@@ -71,8 +71,7 @@ public class Wire : MonoBehaviour {
 	void OnDrawGizmos()
 	{
 		Gizmos.color = Color.white;
-
-	//	Gizmos.DrawLine (transform.position, pivot.position);
+		Gizmos.DrawLine (transform.position, pivot.position);
 	}
 
-	}
+}
