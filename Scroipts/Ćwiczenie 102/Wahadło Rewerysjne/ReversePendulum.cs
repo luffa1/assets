@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Pendulum : MonoBehaviour
+public class ReversePendulum : MonoBehaviour
 {
     public TextMeshProUGUI text; // Display the current angle
     public Transform pivot; // Pivot point for the pendulum

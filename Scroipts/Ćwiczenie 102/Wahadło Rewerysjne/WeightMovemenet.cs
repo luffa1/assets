@@ -1,16 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeightMovemenet : MonoBehaviour
 {
-    void OnMouseDrag()
+    // Referencja do obiektu suwaka
+    public Slider slider;
+
+    // Komponent Transform obiektu, dla którego chcemy zmieniać wartość Y
+    private Transform targetTransform;
+
+    void Start()
     {
-        Vector3 Screenpoint = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 MousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Screenpoint.z);
-        Vector3 ObjPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = ObjPosition;
-        transform.position = new Vector3(0, transform.position.y, 0);
+        // Pobranie komponentu Transform obiektu, dla którego chcemy zmieniać wartość Y
+        targetTransform = GetComponent<Transform>();
+
+        // Nasłuchiwanie zdarzenia zmiany pozycji suwaka
+        slider.onValueChanged.AddListener(OnSliderValueChanged);
     }
-    
+
+    // Funkcja wywoływana po zmianie pozycji suwaka
+    void OnSliderValueChanged(float value)
+    {
+        // Ustawienie nowej wartości Y dla obiektu
+        targetTransform.position = new Vector3(targetTransform.position.x, value, targetTransform.position.z);
+    }
 }
