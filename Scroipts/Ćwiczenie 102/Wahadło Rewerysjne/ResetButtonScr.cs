@@ -8,5 +8,6 @@ public class ResetButtonScr : MonoBehaviour
     public void ResetScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Period.GetInstance().Reset();
     }
 }

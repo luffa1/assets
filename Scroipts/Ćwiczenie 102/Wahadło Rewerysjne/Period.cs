@@ -38,6 +38,11 @@ public class Period {
         }
     }
 
+    public void Reset()
+    {
+        this.deviationCounter = -1;
+        this.periodCounter = 0;
+    }
     public int GetPeriod() {
         return (int)((float) this.deviationCounter / 2.0f);
     }
