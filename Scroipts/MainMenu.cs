@@ -18,14 +18,18 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
-    public void Ćwiczenie204()
+    public void WahadloRewersyjneReducedLengt()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 4);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-    public void Ćwiczenie324()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 5);
-    }
+    // public void Ćwiczenie204()
+    // {
+    //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 4);
+    // }
+    // public void Ćwiczenie324()
+    // {
+    //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 5);
+    // }
     
     public void Back()
     {

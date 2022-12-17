@@ -20,7 +20,7 @@ public class TestingCodeForMovement : MonoBehaviour
     // Siła poruszająca wahadło po kliknięciu
     public float force = 0;
     // Komponent Rigidbody2D obiektu wahadła
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
     // public ReversePendulumTimer timer;
     public InputField swingForceInput;
     public Button startButton;
