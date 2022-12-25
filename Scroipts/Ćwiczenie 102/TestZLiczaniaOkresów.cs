@@ -36,7 +36,7 @@ public class TestZLiczaniaOkresów : MonoBehaviour
         }
             
     }
-     void OnMouseDrag() 
+    void OnMouseDrag() 
     {
 
 		Vector3 Screepoint = Camera.main.WorldToScreenPoint (transform.position);

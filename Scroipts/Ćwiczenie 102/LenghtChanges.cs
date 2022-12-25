@@ -2,43 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class LenghtChanges : MonoBehaviour
 {
-    // Suwak, którego wartość będzie używana do zmiany długości obiektu
-    public Slider slider;
- 
-
-    // Stała pozycja Y obiektu
-    private float fixedY;
+    public Slider lengthSlider; // referencja do slidera
+    public GameObject pivotPoint; // referencja do punktu zawieszenia wahadła
+    public GameObject pendulumEnd; // referencja do końca wahadła
+    public LineRenderer lineRenderer; // referencja do linii wahadła
+    public TextMeshProUGUI lengthValue;
 
     void Start()
     {
-        // Pobierz aktualną pozycję obiektu
-        Vector3 position = gameObject.transform.position;
-
-        // Zapisz wartość pozycji Y jako stałą
-        fixedY = position.y;
+        lengthSlider.onValueChanged.AddListener(SetLength);
+        // ustaw początkową długość wahadła na wartość slidera
+        SetLength(lengthSlider.value);
     }
 
-    void Update()
+    public void SetLength(float length)
     {
-        // Pobierz aktualną skalę obiektu
-        Vector3 scale = gameObject.transform.localScale;
+        // ustaw pozycję końca wahadła
+        pendulumEnd.transform.position = pivotPoint.transform.position + Vector3.down * length;
 
-        // Zmień wartość skali na osi Y na wartość suwaka
-        scale.y = slider.value;
+        // ustaw pozycję początku linii wahadła na pozycji punktu zawieszenia
+        lineRenderer.SetPosition(0, pivotPoint.transform.position);
 
-        // Ustaw nową skalę dla obiektu
-        gameObject.transform.localScale = scale;
+        // ustaw pozycję końca linii wahadła na pozycji końca wahadła
+        lineRenderer.SetPosition(1, pendulumEnd.transform.position);
 
-        // Pobierz aktualną pozycję obiektu
-        Vector3 position = gameObject.transform.position;
-
-        // Ustaw pozycję Y na zapisaną stałą wartość
-        position.y = fixedY;
-
-        // Ustaw nową pozycję dla obiektu
-        gameObject.transform.position = position;
+        lengthValue.text = length.ToString("") + " cm";
+        
     }
 }

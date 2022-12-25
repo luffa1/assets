@@ -37,6 +37,11 @@ public class PeriodMathPendulum {
             this.delayer = 0;
         }
     }
+    public void onMouseUp()
+    {
+        this.deviationCounter = -1;
+        this.periodCounter = 0;
+    }
     public void Reset()
     {
         this.deviationCounter = -1;

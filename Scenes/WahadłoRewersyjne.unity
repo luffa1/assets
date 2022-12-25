@@ -217,7 +217,6 @@ GameObject:
   - component: {fileID: 45800346}
   - component: {fileID: 45800349}
   - component: {fileID: 45800350}
-  - component: {fileID: 45800351}
   m_Layer: 0
   m_Name: Arm
   m_TagString: Untagged
@@ -382,23 +381,8 @@ MonoBehaviour:
   swingForceInput: {fileID: 1731867256}
   startButton: {fileID: 1355880403}
   periodDisplayer: {fileID: 233304854}
-  count: 0
-  timer: 0
-  amplitude: 0
   pendulum: {fileID: 45800345}
   timerr: {fileID: 810436310}
---- !u!114 &45800351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45800344}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 250a6f8fe56bac34a9ada2302909f915, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &48431506
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,8 +2349,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17.135, y: 39.6}
-  m_SizeDelta: {x: 45.0121, y: 31.9233}
+  m_AnchoredPosition: {x: 71.487885, y: 39.6}
+  m_SizeDelta: {x: 99.3652, y: 31.9233}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1014621264
 MonoBehaviour:
@@ -2607,8 +2591,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -58.7, y: 39.6}
-  m_SizeDelta: {x: 106.658, y: 31.923}
+  m_AnchoredPosition: {x: -37.9942, y: 39.6}
+  m_SizeDelta: {x: 119.5992, y: 31.923}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1164504090
 MonoBehaviour:
@@ -2657,14 +2641,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0

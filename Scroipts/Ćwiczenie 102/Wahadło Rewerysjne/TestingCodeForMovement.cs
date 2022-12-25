@@ -25,16 +25,6 @@ public class TestingCodeForMovement : MonoBehaviour
     public InputField swingForceInput;
     public Button startButton;
     public TextMeshProUGUI periodDisplayer;
-    private float currentTime;
-    private int period = 0; // added period counter variable
-    public int count = 0;
-    private bool countingPeriod = false;  // Flaga informująca o tym, czy zliczanie okresu jest włączone
-    private float initialRotation;
-    private float previousTime;
-    private float time = 0;
-    public float timer;
-    
-    public float amplitude;
     public Transform pendulum;
 
     public ReversePendulumTimer timerr;
