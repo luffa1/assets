@@ -10,7 +10,7 @@ public class LenghtChanges : MonoBehaviour
     public GameObject pivotPoint; // referencja do punktu zawieszenia wahadła
     public GameObject pendulumEnd; // referencja do końca wahadła
     public LineRenderer lineRenderer; // referencja do linii wahadła
-    public TextMeshProUGUI lengthValue;
+    public TextMeshProUGUI lengthValue; // referencja do pola tekstowego
 
     void Start()
     {
@@ -30,7 +30,6 @@ public class LenghtChanges : MonoBehaviour
         // ustaw pozycję końca linii wahadła na pozycji końca wahadła
         lineRenderer.SetPosition(1, pendulumEnd.transform.position);
 
-        lengthValue.text = length.ToString("") + " cm";
-        
+        lengthValue.text = length.ToString("") + " cm";  
     }
 }

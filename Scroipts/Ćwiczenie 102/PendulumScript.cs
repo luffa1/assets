@@ -1,29 +1,40 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
-public class WorkingReversePendulum : MonoBehaviour
+public class PendulumScript : MonoBehaviour
 {
     // Przekształcanie składowej punktu obrotu wahadła
     public Transform pivot;
     // Bieżący okres wahadła w sekundach
     public Transform anchor;
+    // Zmienna przechowująca aktualny okres wahadła w sekundach
     private float period = 0;
     // Komponent timera do śledzenia czasu, który upłynął
-    public ReversePendulumTimer timerr;
+    public Timer timer;
     // Komponent Rigidbody2D
     private Rigidbody2D rb2D;
     // Komponent HingeJoint2D
     private HingeJoint2D hing2D;
+    // Komponent Slider
+    public Slider lengthSlider;
+    // Siatka tekstowa do wyświetlania wartości długości
+    public TextMeshProUGUI lengthValue;
     // Komponent Kamery
     public Camera cameraa;
-    // Funkcja sprawdzająca czy wahadło się rusza
+    // Określenie czy funkcja sprawdzająca czy wahadło się rusza
     private bool isDragging = false;
 
     void Start()
     {
         // Inicjowanie zmiennych
-        timerr = GameObject.Find("ReversePendulumTimer").GetComponent<ReversePendulumTimer>();
+        timer = GameObject.Find("Timer").GetComponent<Timer>();
         rb2D = GetComponent<Rigidbody2D>();
         hing2D = GetComponent<HingeJoint2D>();
+        // Dodawanie listenera do zmiany długości wahadła
+        lengthSlider.onValueChanged.AddListener(SetLength);
+        // Ustawienie długości wahadła na podstawie wartości suwaka
+        SetLength(lengthSlider.value);
     }
     // Funkcja obsługująca przesuwanie wahadła za pomocą myszy
     void OnMouseDrag() 
@@ -50,12 +61,12 @@ public class WorkingReversePendulum : MonoBehaviour
     }
     // Funkcja obsługująca zwolnienie przycisku myszy
     void OnMouseUp() 
-    {
+    {  
         // Sprawdzenie czy gracz przesuwał wahadło
         if(isDragging)
         {
             // Rozpoczęcie odliczania czasu przez obiekt "timer"
-            timerr.startTimer();
+            timer.startTimer();
             // Zerowanie zmiennej przechowującej okres wahadła
             period = 0;
             // Resetowanie pozycji wahadła
@@ -82,13 +93,20 @@ public class WorkingReversePendulum : MonoBehaviour
             }
         }
     }
+    public void SetLength(float length)
+    {
+        // Resetowanie pozycji wahadła
+        ResetPosition();
+        // Ustawienie tekstu z wartością długości wahadła na obiekcie "lengthValue"
+        lengthValue.text = length.ToString("") + " cm";  
+    }
     // Resetowanie pozycji wahadła do pozycji początkowej
     public void ResetPosition()
     {
         // Włączenie fizyki dla wahadła
         rb2D.isKinematic = false;
         // Obliczenie wektora pomiędzy punktem mocowania a punktem obrotu
-        Vector2 v2 = (anchor.position - pivot.position).normalized;
+        Vector2 v2 = (anchor.position - pivot.position).normalized * lengthSlider.value / 100;
         // Obliczenie obrotu na podstawie wektora pomiędzy punktem mocowania a punktem obrotu
         Quaternion rotation = Quaternion.LookRotation(Vector3.forward, v2);
         // Ustawienie obrotu punktu obrotu
@@ -99,4 +117,3 @@ public class WorkingReversePendulum : MonoBehaviour
         hing2D.anchor = v2.magnitude * Vector2.up;
     }
 }
-

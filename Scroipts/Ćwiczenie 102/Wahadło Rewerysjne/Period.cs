@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class Period {
     private Period() {}
-
     private static Period instance = null;
-
     public float previousPreviousPosition = 0.0f;
     public float previousPosition = 0.0f;
     public float currentPosition = 0.0f;
@@ -30,14 +28,13 @@ public class Period {
             this.previousPosition = this.currentPosition;
             this.currentPosition = newCurrentPosition;
 
-            if (Mathf.Abs(this.previousPreviousPosition) < Mathf.Abs(this.previousPosition) && Mathf.Abs(this.currentPosition) < Mathf.Abs(this.previousPosition)) {
+            if (Mathf.Abs(this.previousPreviousPosition) < Mathf.Abs(this.previousPosition) && Mathf.Abs(this.currentPosition) < Mathf.Abs(this.previousPosition))
+            {
                 deviationCounter++;
             }
-            // Debug.Log(Mathf.Abs(this.previousPreviousPosition) + ", " + Mathf.Abs(this.previousPosition) + ", " + Mathf.Abs(this.currentPosition) + ", " + deviationCounter + ", " + this.GetPeriod());
             this.delayer = 0;
         }
     }
-
     public void Reset()
     {
         this.deviationCounter = -1;
